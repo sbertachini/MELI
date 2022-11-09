@@ -83,8 +83,15 @@ print(arch_salida.write(header))
 
 #Recorro Archivo de Entrada
 for ord in arch_ordenes:
+    #Quito el fin de línea
+    ord = ord[:-1]
+
     #Deben ser Solo Números
-    reg_sal = func_GetLinea(str(int(ord))) + "\n"
+    if ord.isnumeric():
+        reg_sal = func_GetLinea(str(int(ord))) + "\n"
+    else:
+        reg_sal = ord + ';El ID de Orden debe ser numérico' + "\n"
+
     print(arch_salida.write(reg_sal))
 
 arch_ordenes.close()
