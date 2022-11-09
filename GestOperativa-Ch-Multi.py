@@ -3,6 +3,12 @@ from multiprocessing import Pool
 
 url = 'https://6f008c57-99e0-4a2e-8d80-782a71cf99db.mock.pstmn.io'
 
+# El problema que veo en Multi-Proceso es que si me ingresan un ID que no sea numérico pincha.
+# Este programa está hecho con la precondición que todos los ID sean solo NUMERICOS
+
+# Si no tuviera la precondición, no me queda otra que en tal caso rechazar el arhivo completo o recorrer registro a registro
+# para realizar la validacion y descartar (e informar) los que no sean numeros.
+
 def func_GetLinea(orden_id):
 
     url_orden = url + '/orders/' + orden_id
